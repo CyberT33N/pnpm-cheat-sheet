@@ -164,4 +164,10 @@ rm package-lock.json
 pnpm install
 ```
 
+
+If needed allow build scripts from included dependencies. You will get message in stdout e.g.
+```
+pnpm approve-builds drivelist electron electron-winstaller
+```
+
 </details>
