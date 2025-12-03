@@ -8,8 +8,27 @@ npm install -g pnpm
 ```
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <br><br>
 <br><br>
+
+-- 
+
+
+<br><br>
+<br><br>
+
 
 # Migrate
 
@@ -171,3 +190,50 @@ pnpm approve-builds drivelist electron electron-winstaller
 ```
 
 </details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+<br><br>
+
+-- 
+
+
+<br><br>
+<br><br>
+
+
+
+
+# CLI
+
+## Dependencies
+
+### Update
+
+#### Update to latest version
+```shell
+pnpm up eslint --latest
+```
