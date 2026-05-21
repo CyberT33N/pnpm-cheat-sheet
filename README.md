@@ -2,14 +2,15 @@
 
 # Install
 
-## Ubuntu
 ```shell
 npm install -g pnpm
 ```
 
+# Update
 
-
-
+```shell
+pnpm self-update
+```
 
 
 
