@@ -8,10 +8,16 @@ npm install -g pnpm
 
 # Update
 
+## Project
 ```shell
 pnpm self-update
 ```
 
+## Global
+```shell
+C:\Users\test\AppData\Local\pnpm\pnpm.CMD self-update 11
+pnpm -v
+```
 
 
 
