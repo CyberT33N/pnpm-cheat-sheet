@@ -38,7 +38,7 @@ pnpm -v
 
 Specific versiomn
 ```shell
-C:\Users\test\AppData\Local\pnpm\pnpm.CMD self-update 11.11.3
+C:\Users\test\AppData\Local\pnpm\pnpm.CMD self-update 11.1.3
 pnpm -v
 ```
 
