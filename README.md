@@ -321,6 +321,9 @@ Eine Lösung ist, den `node_modules`-Ordner und die `pnpm-lock.yaml` zu löschen
 
 ```Set-Location "C:\Projects\test"
 Remove-Item ".\node_modules" -Recurse -Force
-Remove-Item ".\pnpm-lock.yaml" -Force -ErrorAction SilentlyContinue
+
+should work without delete pnpm-lock.yaml
+# Remove-Item ".\pnpm-lock.yaml" -Force -ErrorAction SilentlyContinue
+
 pnpm install
 ```
