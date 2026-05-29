@@ -277,3 +277,50 @@ pnpm approve-builds drivelist electron electron-winstaller
 ```shell
 pnpm up eslint --latest
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Troubleshooting
+
+## node-gyp
+
+### gypfile:true not installing
+- Es kann passieren, dass bei einem `pnpm install` `node-gyp` nicht direkt gestartet wird, weil kein `postinstall` für `gyp` vorhanden ist.
+
+Man kann in der `package.json` zwar `gypfile` auf `true` setzen, wodurch es eigentlich starten sollte. Das funktioniert aber nicht automatisch, weil es bei `approved builds` noch nicht enthalten ist.
+
+Wenn man es dann hinzufügt und anschließend neu installiert oder `pnpm rebuild` ausführt, wird es trotzdem nicht automatisch getriggert.
+
+Eine Lösung ist, den `node_modules`-Ordner und die `pnpm-lock.yaml` zu löschen und dann neu zu installieren, weil `approved build` dann in der Workspace-Datei enthalten ist.
+
+```Set-Location "C:\Projects\test"
+Remove-Item ".\node_modules" -Recurse -Force
+Remove-Item ".\pnpm-lock.yaml" -Force -ErrorAction SilentlyContinue
+pnpm install
+```
