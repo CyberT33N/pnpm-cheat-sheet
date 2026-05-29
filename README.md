@@ -32,13 +32,16 @@ pnpm self-update
 
 Method #1
 ```shell
-C:\Users\test\AppData\Local\pnpm\pnpm.CMD self-update 11
+pnpm self-update 11
+# C:\Users\test\AppData\Local\pnpm\pnpm.CMD self-update 11
 pnpm -v
 ```
 
 Specific versiomn
 ```shell
-C:\Users\test\AppData\Local\pnpm\pnpm.CMD self-update 11.1.3
+pnpm self-update 11.1.3
+# C:\Users\test\AppData\Local\pnpm\pnpm.CMD self-update 11.1.3
+
 pnpm -v
 ```
 
