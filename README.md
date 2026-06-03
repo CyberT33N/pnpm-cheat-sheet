@@ -50,6 +50,17 @@ Method #2
 pnpm add -g pnpm
 ```
 
+With nvm:
+```
+nvm use 26.2.0
+npm install -g pnpm@11.5.0
+
+where pnpm
+
+pnpm -v
+C:\nvm4w\nodejs\pnpm.cmd -v
+```
+
 
 
 
