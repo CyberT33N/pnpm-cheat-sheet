@@ -1,150 +1,35 @@
 # pnpm cheat sheet
 
-# Install
-
-```shell
-npm install -g pnpm
-```
-
-
-
-
-
-
-
-<br><br>
-
-
-# Update
-
-## Project
-```shell
-pnpm self-update
-```
-
-
-
-
-<br><br>
-
-## Global
-
-
-Method #1
-```shell
-pnpm self-update 11
-# C:\Users\test\AppData\Local\pnpm\pnpm.CMD self-update 11
-pnpm -v
-```
-
-Specific versiomn
-```shell
-pnpm self-update 11.1.3
-# C:\Users\test\AppData\Local\pnpm\pnpm.CMD self-update 11.1.3
-
-pnpm -v
-```
-
-Method #2
-```shell
-pnpm add -g pnpm
-```
-
-With nvm:
-```
-nvm use 26.2.0
-npm install -g pnpm@11.5.0
-
-where pnpm
-
-pnpm -v
-C:\nvm4w\nodejs\pnpm.cmd -v
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br><br>
-<br><br>
-
--- 
-
-
-<br><br>
-<br><br>
-
-
-
-
-# CLI
-
-## Dependencies
-
-### Update
-
-#### Update to latest version
-```shell
-pnpm up eslint --latest
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Troubleshooting
-
-## node-gyp
-
-### gypfile:true not installing
-- Es kann passieren, dass bei einem `pnpm install` `node-gyp` nicht direkt gestartet wird, weil kein `postinstall` für `gyp` vorhanden ist.
-
-Man kann in der `package.json` zwar `gypfile` auf `true` setzen, wodurch es eigentlich starten sollte. Das funktioniert aber nicht automatisch, weil es bei `approved builds` noch nicht enthalten ist.
-
-Wenn man es dann hinzufügt und anschließend neu installiert oder `pnpm rebuild` ausführt, wird es trotzdem nicht automatisch getriggert.
-
-Eine Lösung ist, den `node_modules`-Ordner und die `pnpm-lock.yaml` zu löschen und dann neu zu installieren, weil `approved build` dann in der Workspace-Datei enthalten ist.
-
-```Set-Location "C:\Projects\test"
-Remove-Item ".\node_modules" -Recurse -Force
-
-should work without delete pnpm-lock.yaml
-# Remove-Item ".\pnpm-lock.yaml" -Force -ErrorAction SilentlyContinue
-
-pnpm install
-```
+[INTENT: CONTEXT]
+
+This file is the **table of contents only**. All substantive content lives under
+[`docs/`](docs/) as capability areas. Do not add procedures, commands, or
+troubleshooting text here — add or extend the matching area under `docs/` and
+link it below.
+
+## Structure
+
+Content is organized by **subject anchor** (what area owns the truth), never by
+document kind or operating system. OS is a facet inside a page, not a folder.
+
+| Area | Owns | Entry |
+|---|---|---|
+| Installation | How `pnpm` itself gets onto a machine: sanctioned method, version pinning, native-binary verification, the Node-fallback anti-pattern | [`docs/installation/index.md`](docs/installation/index.md) |
+| Update | Updating the `pnpm` CLI on a host, channel rule, verification | [`docs/update/index.md`](docs/update/index.md) |
+| CLI | Everyday command surface (dependency operations, flags) | [`docs/cli/dependencies.md`](docs/cli/dependencies.md) |
+| Builds | Native/build-script behavior of dependencies (e.g. `node-gyp` not building) | [`docs/builds/node-gyp-not-building.md`](docs/builds/node-gyp-not-building.md) |
+| Workspace policy | `pnpm-workspace.yaml` behavior/policy surface (exact identity preserved as folder name) | [`pnpm-workspace.yaml/index.md`](pnpm-workspace.yaml/index.md) |
+| Install hooks | `.pnpmfile.cjs` hooks and their governance (exact identity preserved as folder name) | [`.pnpmfile.cjs/index.md`](.pnpmfile.cjs/index.md) |
+
+## Reading order for a new agent
+
+1. `docs/installation/index.md` — the two governing laws (native-binary invariant, OS-as-facet) and the sanctioned install path.
+2. `docs/installation/native-runtime-model.md` — how to verify an install is actually native.
+3. `docs/update/index.md` — keep the tool current through its own channel.
+4. `pnpm-workspace.yaml/index.md` — the hardened workspace control plane.
+
+## Conventions this repo follows
+
+- Folder names: kebab-case, subject-named; explicit source-side identities (`pnpm-workspace.yaml`, `.pnpmfile.cjs`) are preserved verbatim as folders with an `index.md`.
+- Artifact type (`convention`, `troubleshooting`, `reference`) lives in the page and its heading, never in a folder name.
+- Topic-first, facet-second: `docs/<capability>/<facet>/<leaf>.md`.
